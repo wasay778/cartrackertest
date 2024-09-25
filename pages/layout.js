@@ -1,4 +1,4 @@
-import './globals.css'  // Make sure this line is present
+import '../styles/globals.css'  // Make sure this line is present
 
 export default function RootLayout({ children }) {
   return (
