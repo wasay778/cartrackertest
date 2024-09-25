@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import Head from 'next/head';
-
+import { ChevronDown, Globe, ChevronUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 
 
@@ -450,28 +450,32 @@ const Dashboard = () => {
 
 const HowItWorks = () => {
   return (
-    <div className="how-it-works">
-      <h2>How It Works</h2>
-      <div className="steps">
-        <div className="step">
-          <img src="/price.png" alt="Get your offer" className="icon" />
-          <h3>Get your offer</h3>
+    <div className="how-it-works text-center py-10">
+      <h2 className="text-3xl font-bold mb-6">How It Works</h2>
+      <div className="steps flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+        <div className="step flex flex-col items-center">
+          <img src="/price.png" alt="Get your offer" className="icon w-16 h-16 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Get your offer</h3>
           <p>It takes 2 minutes</p>
         </div>
-        <div className="step">
-          <img src="/calendar.png" alt="Make an appointment" className="icon" />
-          <h3>Make an appointment</h3>
+        <div className="step flex flex-col items-center">
+          <img src="/calendar.png" alt="Make an appointment" className="icon w-16 h-16 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Make an appointment</h3>
           <p>Contact us to schedule your appointment</p>
         </div>
-        <div className="step">
-          <img src="/ticket.png" alt="Come get paid" className="icon" />
-          <h3>Come get paid</h3>
+        <div className="step flex flex-col items-center">
+          <img src="/ticket.png" alt="Come get paid" className="icon w-16 h-16 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Come get paid</h3>
           <p>To receive payment, please submit your invoice promptly</p>
         </div>
       </div>
     </div>
   );
 };
+
+
+
+
 
 
 const Header = () => (
@@ -483,12 +487,17 @@ const Header = () => (
 
 const Hero = () => {
   return (
-    <div className="hero">
-      <div className="hero-text">
-        <h1>Track Your Vehicle With Us</h1>
-        <p className="main-text">
+    <div
+      className="hero bg-cover bg-center h-screen flex flex-col md:flex-row items-center justify-between px-4 md:px-20 py-20 md:py-0"
+      style={{ backgroundImage: "url('https://hatzs.com/wp-content/uploads/2024/09/image-1-5.png')" }}
+    >
+      <div className="hero-text w-full md:w-2/5 text-left mb-8 md:mb-0">
+        <h1 className="text-white text-4xl md:text-6xl font-bold">
+          Track Your Vehicle With Us
+        </h1>
+        <p className="text-white text-lg md:text-2xl mt-4 max-w-xl">
           Since 1981 we provide our clients high quality custom cabinetry,
-          furniture, architectural millwork and finish carpentry.
+          furniture, architectural millwork, and finish carpentry.
         </p>
       </div>
       <Dashboard />
@@ -554,48 +563,55 @@ const ServiceItem = ({ imageUrl, title, description, reverse }) => (
 );
 
 const TrustedPartner = () => (
-  <div className="trusted-partner">
-    <div className="trusted-left">
-      <img src="/1stleft.png" alt="" />
+  <div className="trusted-partner flex flex-col md:flex-row justify-center items-center gap-10 px-4 py-10 md:px-20">
+    <div className="trusted-left w-full md:w-2/5">
+      <img src="/1stleft.png" alt="Trusted Partner" className="w-full h-full object-cover" />
     </div>
 
-    <div className="trusted-right">
-      <div className="header-logo">
-        <img src="/star.png" alt="start" />
-        <p className="p-logo">About Us</p>
+    <div className="trusted-right w-full md:w-2/5 flex flex-col justify-center items-start">
+      <div className="header-logo flex items-center mb-4">
+        <img src="/star.png" alt="Star Icon" className="w-10 h-10" />
+        <p className="p-logo text-lg font-semibold ml-2">About Us</p>
       </div>
-      <h3>Your trusted partner in reliable car Tracking</h3>
-      <p>
+
+      <h3 className="text-3xl md:text-5xl font-bold text-black mb-4">
+        Your trusted partner in reliable car tracking
+      </h3>
+
+      <p className="text-base font-normal mb-4">
         Aqestic Optio Amet A Ququam Saepe Aliquid Voluate Dicta Fuga Dolor
         Saerror Sed Earum A Magni Soluta Quam Minus Dolor Dolor
       </p>
 
       <FeatureItem
         iconSrc="/ins.png"
-        title="Easily Installing process"
-        description="We Have Optimized The Installing Process So That Our Clients Can Experience The Easiest And The Safest Service"
+        title="Easily Installing Process"
+        description="We have optimized the installing process so that our clients can experience the easiest and the safest service."
       />
 
       <FeatureItem
         iconSrc="/car.png"
-        title="Convenient Tracking & Installing process"
-        description="We Have Optimized The Tracking Process So That Our Clients Can Experience The Easiest And The Safest Service"
+        title="Convenient Tracking & Installing Process"
+        description="We have optimized the tracking process so that our clients can experience the easiest and the safest service."
       />
     </div>
   </div>
 );
 
 const FeatureItem = ({ iconSrc, title, description }) => (
-  <div className="right-feature border-bottom-div">
-    <div className="feature-left">
-      <img src={iconSrc} alt="" />
+  <div className="right-feature flex items-center py-4 mt-6 w-full border-b border-gray-200">
+    <div className="feature-left w-1/5">
+      <img src={iconSrc} alt={title} className="w-16 h-20" />
     </div>
-    <div className="feature-right">
-      <h4>{title}</h4>
-      <p>{description}</p>
+    <div className="feature-right w-4/5 ml-4">
+      <h4 className="text-lg font-bold">{title}</h4>
+      <p className="text-base font-normal">{description}</p>
     </div>
   </div>
 );
+
+
+
 
 
 
@@ -636,7 +652,8 @@ const Testimonial = () => {
       author: "Alis white",
       role: "Project manager",
       image: "/client.png"
-    }, {
+    },
+    {
       rating: 5,
       comment: "Renting a car from nova ride was a great decision. Not only did I get a reliable and comfortable vehicle, but the prices were also very competitive.",
       author: "Alis white",
@@ -646,57 +663,78 @@ const Testimonial = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 3 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - slidesToShow : prevIndex - 1
+    );
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 3 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => 
+      (prevIndex + slidesToShow) >= testimonials.length ? 0 : prevIndex + 1
+    );
   };
 
   return (
-    <div className="testimonial">
-      <div className="ser-header">
-        <div className="header-logo">
-          <img src="/star.png" alt="start" />
-          <p className="p-logo">Testimonials</p>
+    <div className="w-full py-20 flex flex-col items-center gap-16">
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <img src="/star.png" alt="star" className="w-6 h-6" />
+          <p className="text-lg font-semibold">Testimonials</p>
         </div>
-        <div className="header-text-">
-          <h2>What our customers are saying about us</h2>
-        </div>
+        <h2 className="text-3xl font-bold">What our customers are saying about us</h2>
       </div>
 
-      <div className="row2">
-        {testimonials.slice(currentIndex, currentIndex + 3).map((testimonial, index) => (
-          <div key={index} className="box1">
-            <div className="bar1">
-              {[...Array(5)].map((_, i) => (
-                <img key={i} src={i < testimonial.rating ? "/Symbol2.png" : "/Symbol.png"} alt="" />
-              ))}
+      <div className="w-full flex flex-wrap justify-center gap-8">
+        {testimonials.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
+          <div key={index} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] max-w-md bg-white rounded-3xl p-6 border border-gray-200">
+            <div className="flex mb-4">
+            {[1, 2, 3, 4, 5].map((star) => (
+  <img 
+    key={star} 
+    src={star <= testimonial.rating ? "/Symbol2.png" : "/Symbol.png"} 
+    alt={star <= testimonial.rating ? "Filled star" : "Empty star"} 
+    className="w-5 h-5"
+  />
+))}
             </div>
-            <div className="box1-row2">
-              <p className="comment">{testimonial.comment}</p>
-            </div>
-            <div className="box1-row1">
-              <img src={testimonial.image} alt="" />
-              <h4>
-                {testimonial.author}
-                <br />
-                <span>{testimonial.role}</span>
-              </h4>
+            <p className="text-gray-600 mb-4">{testimonial.comment}</p>
+            <div className="flex items-center gap-3">
+              <img src={testimonial.image} alt={`${testimonial.author}'s avatar`} className="w-12 h-12 rounded-full" />
+              <div>
+                <h4 className="text-lg font-semibold">{testimonial.author}</h4>
+                <span className="text-sm text-gray-600">{testimonial.role}</span>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="slider-btn-div">
-        <div className="slider-btn prev" onClick={handlePrevClick}>
-       
-        </div>
-        <div className="slider-btn next" onClick={handleNextClick}>
-         
-        </div>
+      <div className="flex gap-4">
+        <button onClick={handlePrevClick} className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+        <button onClick={handleNextClick} className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
       </div>
     </div>
   );
@@ -776,49 +814,155 @@ const AccordionItem = ({ name, label, children }) => {
 
 Accordion.Item = AccordionItem;
 
-const CarTrackersSection = () => {
+
+const FAQItem = ({ question, answer, isOpen, onClick }) => (
+  <div 
+    className={`border-b border-gray-200 transition-all duration-300 ease-in-out ${
+      isOpen ? 'bg-orange-50 scale-98' : 'bg-white'
+    }`}
+  >
+    <button
+      className="flex justify-between items-center w-full p-5 text-left"
+      onClick={onClick}
+    >
+      <span className="font-medium">{question}</span>
+      {isOpen ? (
+        <ChevronUp className="w-5 h-5 text-orange-500" />
+      ) : (
+        <ChevronDown className="w-5 h-5 text-gray-400" />
+      )}
+    </button>
+    {isOpen && (
+      <div className="px-5 pb-5">
+        <p className="text-gray-600">{answer}</p>
+      </div>
+    )}
+  </div>
+);
+
+const FAQComponent = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const faqs = [
+    {
+      question: "Can I sell car to Car trackers without buying a car from Car trackers?",
+      answer: "Yes, you can sell your car to Car Trackers even if you haven't purchased a car from them. They accept vehicles for sale regardless of where you originally bought your car."
+    },
+    {
+      question: "Is the online offer a real offer or an estimate?",
+      answer: "The online offer is typically an estimate based on the information you provide. A final offer may be subject to an in-person inspection of your vehicle."
+    },
+    {
+      question: "Can I negotiate my online offer?",
+      answer: "While the online offer is generally firm, you may have the opportunity to negotiate during an in-person appraisal if your car's condition differs from what was described online."
+    },
+    {
+      question: "Can I get both an online and in-store appraisal?",
+      answer: "Yes, you can get an online appraisal first and then visit a Car Trackers location for an in-person appraisal to confirm or adjust the offer based on the actual condition of your vehicle."
+    },
+    {
+      question: "What I do after I get an online offer?",
+      answer: "After receiving an online offer, you can schedule an appointment at a Car Trackers location for an in-person inspection and to complete the sale if you decide to proceed."
+    }
+  ];
+
   return (
-    <div className="trusted-partner">
-      <div className="trusted-right">
+    <div className="max-w-3xl mx-auto px-4 py-12">
+        <p className="text-orange-500 text-sm font-semibold text-center mb-8">FAQs</p>
+      <h2 className="text-3xl font-bold text-center mb-2">Frequently Asked Questions</h2>
+    
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <FAQItem
+            key={index}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={index === openIndex}
+            onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+const CarTrackersLanding = () => {
+  const [expandedSection, setExpandedSection] = useState(null);
+
+  const toggleSection = (section) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  const sections = ['Browse And Track', 'Book And Confirm', 'Wait And Enjoy'];
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="md:w-1/2">
         <div className="header-logo">
           <img src="/star.png" alt="star" width={32} height={32} />
           <h2 style={{ color: '#FF8713' }}>How it works</h2>
         </div>
-        <h3>Why wait? Sell your car today with Car Trackers</h3>
-        <p>
-          Get an estimate on your car's value online, and see why so many Southern
-          California drivers choose to sell their cars with Car Trackers.
-        </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Why wait? Sell your car today with Car Trackers
+          </h1>
+          <p className="text-gray-600 mb-8">
+            Get an estimate on your car's value online, and see why so many Southern
+            California drivers choose to sell their cars with Car Trackers.
+          </p>
 
-        <Accordion>
-          <Accordion.Item name="A" label="Browse and Track">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-              dolorem velit ipsam fugit voluptates odit maiores reprehenderit
-              rerum odio? Sapiente, quia! Nemo, tempore inventore. Cumque
-              voluptatum magnam voluptatem illo.
-            </p>
-          </Accordion.Item>
-          <Accordion.Item name="B" label="Book and confirm">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-              dolorem velit ipsam fugit voluptates odit maiores reprehenderit
-              rerum odio? Sapiente, quia! Nemo, tempore inventore. Cumque
-              voluptatum magnam voluptatem illo.
-            </p>
-          </Accordion.Item>
-          <Accordion.Item name="C" label="Wait and enjoy">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-              dolorem velit ipsam fugit voluptates odit maiores reprehenderit
-              rerum odio? Sapiente, quia! Nemo, tempore inventore. Cumque
-              voluptatum magnam voluptatem illo.
-            </p>
-          </Accordion.Item>
-        </Accordion>
-      </div>
-      <div className="trusted-left">
-        <img src="rightimg.png" alt="Trusted Background 2" width={575} height={575} />
+          <div className="space-y-4">
+            {sections.map((section) => (
+              <div key={section} className="border-b pb-2">
+                <button
+                  className="w-full flex justify-between items-center py-2 px-4 hover:bg-gray-100 rounded"
+                  onClick={() => toggleSection(section)}
+                >
+                  <span className="flex items-center">
+                    <Globe className="mr-2 h-4 w-4" />
+                    {section}
+                  </span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${
+                    expandedSection === section ? 'transform rotate-180' : ''
+                  }`} />
+                </button>
+                {expandedSection === section && (
+                  <p className="mt-2 text-gray-600 px-4">
+                    Additional information about {section} goes here.
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="md:w-1/2 relative">
+          <div className=" overflow-hidden ">
+            <img
+              src="/rightimg.png"
+              width={400}
+              height={300}
+              alt="Person standing on a yellow car holding a SOLD! sign"
+              className="w-full h-auto"
+            />
+            <div className="absolute bottom-0 right-0 bg-orange-500 p-4 rounded-tl-lg">
+              <div className="text-white font-bold text-sm">
+                4m+ Trusted<br />
+                world wide<br />
+                global clients
+              </div>
+              <div className="flex -space-x-2 mt-2">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="w-6 h-6 rounded-full bg-gray-300 border-2 border-white" />
+                ))}
+                <div className="w-6 h-6 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs font-bold">
+                  +
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -834,22 +978,22 @@ const Footer = () => (
   <div className="footer">
     <div className="footer-1">
       <InfoBlock
-        icon="/Icon (2).png"
+        icon="/map.png"
         title="Address"
         content="121 King Street, Melbourne Victoria 3000 Australia"
       />
       <InfoBlock
-        icon="/Icon (3).png"
+        icon="/mob.png"
         title="Emergency (24/7)"
         content="Mobile: +01 2342543378 Free Line: 123 456 789"
       />
       <InfoBlock
-        icon="/Icon (4).png"
+        icon="/mail.png"
         title="Email"
         content="info@youremail.com mail@themedept.com"
       />
       <InfoBlock
-        icon="/Icon (5).png"
+        icon="/time.png"
         title="Working Hours"
         content="Mon to Sat - 9 AM to 11 PM Sunday 10 AM to 6 PM"
       />
@@ -859,10 +1003,10 @@ const Footer = () => (
       <p className="copyright">Copyright © 2024 CarTrackers</p>
 
       <div className="social-icons">
-        <a href="#"><img src="/facebook-icon.png" alt="Facebook" /></a>
-        <a href="#"><img src="/twitter-icon.png" alt="Twitter" /></a>
-        <a href="#"><img src="/instagram-icon.png" alt="Instagram" /></a>
-        <a href="#"><img src="/linkedin-icon.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="/fb.png" alt="Facebook" /></a>
+        <a href="#"><img src="/tweet.png" alt="Twitter" /></a>
+        <a href="#"><img src="/ig.png" alt="Instagram" /></a>
+   
       </div>
     </div>
   </div>
@@ -897,9 +1041,9 @@ export default function Home() {
   
         <Testimonial />
         <BgVideoDiv />
-        <CarTrackersSection />
     
-      
+    <FAQComponent/>
+      <CarTrackersLanding/>
         <Footer/>
       </main>
 
@@ -1198,35 +1342,6 @@ padding-top:30px;
                 font-weight: 700;
         }
 
-.hero {
-background-image: url('https://hatzs.com/wp-content/uploads/2024/09/image-1-5.png');
- background-size: cover; /* Ensure the image covers the entire section */
-  background-position: center; /* Center the image */
-  height: 100vh; /* Set the height of the hero section */
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  color: white; /* Set text color to ensure visibility */
-  text-align: center; /* Center text */
-    padding: 200px;
-        height: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-}
-        .hero-text {
-                width: 40%;
-                text-align: left;
-        }
-                .hero-text h1 {
-                        color: white;
-                        font-size: 58px;
-                }
-                .hero-text p {
-                        max-width: 620px;
-                        color: rgba(255, 255, 255, 1);
-                        font-size: 22px;
-                }
 
 .form-section {
         background-color: rgba(0, 0, 0, 0.4);
@@ -1350,72 +1465,7 @@ background-image: url('https://hatzs.com/wp-content/uploads/2024/09/image-1-5.pn
         }
  
 
-.trusted-partner {
-        width: 100%;
 
-        height: fit-content;
-        padding: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 100px;
-}
-        .trusted-left {
-                width: 40%;
-        }
-                .trusted-left img {
-                        width: 100%;
-                        height: 100%;
-                }
-        .trusted-right {
-                width: 40%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: start;
-        }
-                .trusted-right h3 {
-                        font-size: 52px;
-                        font-weight: 700;
-                        color: rgba(0, 0, 0, 1);
-                        margin: 15px 0;
-                }
-                .trusted-right p {
-                        font-size: 16px;
-                        font-weight: 400;
-                        margin: 15px 0;
-                }
-
-        .right-feature {
-                width: 100%;
-                height: fit-content;
-                display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 15px 0;
-                        margin-top: 20px;
-        }
-                .feature-left {
-                        width: 20%;
-                }
-                        .feature-left img {
-                                width: 70px;
-                                height: 80px;
-                        }
-                .feature-right {
-                        width: 80%;
-                }
-                        .feature-right h4 {
-                                font-size: 20px;
-                                font-weight: 700;
-                        }
-                        .feature-right p {
-                                font-size: 16px;
-                                font-weight: 400;
-                        }
-        .border-bottom-div {
-                border-bottom: 2px solid  rgba(236, 236, 236, 1);
-        }
 
 /* FAQ section styling */
 title
@@ -1510,79 +1560,7 @@ title
         font-weight: 900;
 }
 
-.testimonial {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 100px;
-        padding: 80px 0;
-}
 
-.row2 {
-        width: 100%;
-        /* height: 20%; */
-        display: flex;
-        justify-content: center;
-        gap:30px;
-        align-items: center;
-      }
-  
-      .box1 {
-        width: 400px;
-        border-radius: 30px;
-        background-color: rgba(255, 255, 255, 1);
-        padding: 20px 40px;
-        border: 1px solid rgba(236, 236, 236, 1);
-      }
-  
-      .box1-row1 {
-        display: flex;
-        gap: 12px;
-        margin: 20px 0;
-      }
-  
-      .box1-row1 img {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-      }
-  
-      h4 {
-        margin: 0;
-        font-size: 20px;
-        font-weight: 600;
-        color: rgba(4, 4, 1, 1);
-      }
-      h4 span , .box1-row2 p{
-        font-size: 16px;
-        font-weight: 400;
-        color: rgba(97, 97, 97, 1);
-      }
-
-      .bar1 {
-        margin: 15px 0;
-      }
-
-.slider-btn-div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-}
-        .slider-btn {
-                width: 50px;
-                height: 50px;
-                background-color: var(--primary-color);
-                border-radius: 100%;
-                margin: 0;
-                padding: 0;
-                background-position: top;
-                background-size: contain;
-        }
         .next {
                 background-image: url('next.png');
         }
